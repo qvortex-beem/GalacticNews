@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Галактический Вестник</title>
+    <link rel="stylesheet" href="~/css/style.css" />
+    @await RenderSectionAsync("Styles", required: false)
+  </head>
+  <body>
+    <header>
+      <img src="~/images/icons/logo 1.png" alt="лого" />
+      <p>ГАЛАКТИЧЕСКИЙ<br />ВЕСТНИК</p>
+    </header>
+    @RenderBody()
+    <footer>© 2023 – 2412 «Галактический вестник»</footer>
+  </body>
+</html>

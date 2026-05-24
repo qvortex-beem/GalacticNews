@@ -1,0 +1,62 @@
+@model List<GalacticNews.Models.News>
+@{
+    ViewData["Title"] = "Галактический Вестник";
+    int currentPage = ViewBag.CurrentPage;
+    int totalPages = ViewBag.TotalPages;
+    int pageSize = ViewBag.PageSize;
+    var firstNews = Model.FirstOrDefault();
+}
+<main>
+    @if (firstNews != null)
+    {
+        <div class="mainImg" style="background-image: url('/images/@firstNews.Image');">
+            <h1>@firstNews.Title</h1>
+            <p>@Html.Raw(firstNews.Announce)</p>
+        </div>
+    }
+    <div class="newsNscroller">
+        <h1>Новости</h1>
+        <div class="news">
+            @foreach (var item in Model)
+            {
+                <div class="new">
+                    <span class="date">@(item.Date?.ToString("dd.MM.yyyy") ?? "")</span>
+                    <h2>@item.Title</h2>
+                    <p>@Html.Raw(item.Announce)</p>
+                    <a href="@Url.Action("Details", "News", new { id = item.Id, page = currentPage })">
+                        ПОДРОБНЕЕ 
+                        <img src="~/images/icons/arrow.png" alt="">
+                    </a>
+                </div>
+            }
+        </div>
+
+        <div class="scroller">
+            @if (currentPage > 1)
+            {
+                <a href="@Url.Action("Index", new { page = currentPage - 1 })" class="scroll-item arrow">
+                    <img src="~/images/icons/arrow.png" alt="" class="prev-arrow">
+                </a>
+            }
+
+            @for (int i = 1; i <= totalPages; i++)
+            {
+                if (i == currentPage)
+                {
+                    <span class="active scroll-item">@i</span>
+                }
+                else
+                {
+                    <a href="@Url.Action("Index", new { page = i })" class="scroll-item">@i</a>
+                }
+            }
+
+            @if (currentPage < totalPages)
+            {
+                <a href="@Url.Action("Index", new { page = currentPage + 1 })" class="scroll-item arrow">
+                    <img src="~/images/icons/arrow.png" alt="" class="next-arrow">
+                </a>
+            }
+        </div>
+    </div>
+</main>

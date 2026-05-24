@@ -1,0 +1,209 @@
+:root {
+    --left-margin: 250px;
+    --separate-lines-color: grey;
+    --second-color: #841844;
+    --first-color: #fefefe;
+}
+
+* {
+    font-family: 'OpenSans';
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+/* === HEADER === */
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 25px;
+    padding: 0 0 25px var(--left-margin);
+    border-bottom: solid 1px var(--separate-lines-color);
+}
+header img {
+    width: 100px;
+}
+header p {
+    margin-left: 20px;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+/* === MAIN === */
+/* == bgImg == */
+main .mainImg {
+    background-image: url(/images/img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: var(--left-margin);
+    gap: 100px;
+    color: white;
+}
+main .mainImg h1 {
+    font-size: 50px;
+}
+main .mainImg p {
+    font-size: 23px;
+}
+
+/* == news == */
+
+.newsNscroller {
+    margin: 30px var(--left-margin);
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+.news{   
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr ;
+    gap: 100px;
+}
+.new {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 10px;
+    border-radius: 15px;
+    transition: all 0.3s;
+}
+.new:hover {
+    scale: 1.01;
+    box-shadow: grey 0 3px 10px 2px;
+}
+.date {
+    background-color: #ECF2F5;
+    display: flex;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border-radius: 15px;
+}
+.new h2 {
+    font-size: 30px;
+}
+.new p {
+    font-size: 20px;
+}
+.new a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    border: solid 1px var(--second-color);
+    border-radius: 50px;
+    gap: 20px;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--second-color);
+    padding: 15px;
+    transition: all 0.3s;
+}
+.new a img {
+    width: 25px;
+}
+.new a:hover {
+    color: var(--first-color);
+    background-color: var(--second-color);
+    box-shadow: var(--second-color) 0 0 10px 0;
+}
+.new a:hover img {
+    filter: brightness(0) invert(1);
+}
+.scroller {
+    display: flex;
+    justify-content: right;
+    gap: 15px;
+    align-items: center;
+}
+.scroll-item {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px var(--second-color);
+    border-radius: 100px;
+    padding: 5px;
+    text-decoration: none;
+    color: var(--second-color);
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.scroll-item.active {
+    background-color: var(--second-color);
+    color: var(--first-color);
+}
+.scroll-item:hover {
+    color: var(--first-color);
+    background-color: var(--second-color);
+    box-shadow: var(--second-color) 0 0 7px 0;
+}
+.scroll-item.arrow {
+    width: 75px;
+}
+.scroll-item.arrow img {
+    width: 18px;
+    transition: all 0.3s;
+}
+.scroll-item.arrow:hover img {
+    filter: brightness(0) invert(1);
+}
+.prev-arrow {
+    rotate: 180deg;
+}
+
+/* === FOOTER === */
+
+footer {
+    border-top: solid 1px var(--separate-lines-color);
+    height: 115px;
+    margin: 0 var(--left-margin);
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 18px;
+}
+
+/* ==== DETAILS ==== */
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 25px var(--left-margin);
+}
+.details h1 {
+    font-size: 50px;
+}
+.details .newNimg {
+    display: flex;
+    flex-direction: row;
+}
+.details .new:hover {
+    scale: 1;
+    border: none;
+    box-shadow: none;
+}
+.details a {
+    width: 270px;
+}
+.details a img {
+    rotate: 180deg;
+}
+@font-face {
+  font-family: "OpenSans";
+  src: url("../fonts/OpenSans/OpenSans.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}

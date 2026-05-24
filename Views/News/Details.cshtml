@@ -1,0 +1,20 @@
+@model GalacticNews.Models.News
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<main class="details">
+    <h1>@Model.Title</h1>
+    <div class="newNimg">
+        <div class="new">
+            <span class="date">@(Model.Date?.ToString("dd.MM.yyyy") ?? "")</span>
+            @Html.Raw(Model.Content)
+            <p>@Html.Raw(Model.Announce)</p>
+            <a href="@Url.Action("Index", new { page = ViewBag.ReturnPage })">
+                <img src="~/images/icons/arrow.png" alt=""> 
+                НАЗАД К НОВОСТЯМ
+            </a>
+        </div>
+        <img src="~/images/@Model.Image" alt="@Model.Title">
+    </div>
+</main>
