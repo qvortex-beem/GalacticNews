@@ -201,6 +201,9 @@ footer {
 .details a img {
     rotate: 180deg;
 }
+.newNimg>img {
+    max-height: 600px;
+}
 @font-face {
   font-family: "OpenSans";
   src: url("../fonts/OpenSans/OpenSans.ttf") format("truetype");
